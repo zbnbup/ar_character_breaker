@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,intial-scale=1">
+        <title>demo_01</title>
+    </head>
+    
+
+    
+    <body style="margin:0px; overflow:hidden;">
+        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.7/dist/tesseract.js'></script>
+        
+        const worker = new Tesseract.TesseractWorker();
+        worker
+          .recognize(myImage)
+          .then(function(result){
+        console.log(result);
+  });
+
+
+    </body>
+</html>
