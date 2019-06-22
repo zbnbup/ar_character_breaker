@@ -1,10 +1,6 @@
 const medias = {
        audio: false,
-       video: {
-              facingMode: {
-                     exact: "environment"
-                     }
-              }
+       video: true
 };
 
 const video = document.getElementById("video");
@@ -23,7 +19,7 @@ function errorCallback(err){
 
 const worker = new Tesseract.TesseractWorker();
 worker
-  .recognize(myImage)
+  .recognize(video)
   .then(function(result){
     console.log(result);
   });
