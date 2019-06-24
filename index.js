@@ -17,6 +17,8 @@ function errorCallback(err){
   alert(err);
   };
 
+
+
 const worker = new Tesseract.TesseractWorker();
 worker
   .recognize(promise)
