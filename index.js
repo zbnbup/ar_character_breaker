@@ -85,15 +85,36 @@ function errorCallback(err){
 
   function filter(data) {
     // 画像処理を行う
-         
+
+
+const threshold = 255 / 2;
+
+const getColor = (data, i) => {
+  // threshold < rgbの平均
+  const avg = (data[i] + data[i+1] + data[i+2]) / 3;
+  if (threshold < avg) {
+    // white
+    return 255;
+  } else {
+    // black
+    return 0;
+  }
+};
+
+for (let i = 0; i < data.length; i += 4) {
+  const color = getColor(data, i);
+  data[i] = data[i+1] = data[i+2] = color;
+}
+
+
   }
 
-const worker = new Tesseract.TesseractWorker();
+/*const worker = new Tesseract.TesseractWorker();
 worker
   .recognize(offscreenCtx)
   .then(function(result){
     console.log(result);
-  });
+  });*/
 
 
 }
