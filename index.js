@@ -84,7 +84,7 @@ function errorCallback(err){
 main();
 
 
-const worker = new Tesseract.TesseractWorker();
+/*const worker = new Tesseract.TesseractWorker();
 worker
   .recognize(promise)
   .then(function(result){
