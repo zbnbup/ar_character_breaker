@@ -87,14 +87,17 @@ function errorCallback(err){
     // 画像処理を行う
          
   }
+
+const worker = new Tesseract.TesseractWorker();
+worker
+  .recognize(offscreenCtx)
+  .then(function(result){
+    console.log(result);
+  });
+
+
 }
 
 main();
 
 
-/*const worker = new Tesseract.TesseractWorker();
-worker
-  .recognize(promise)
-  .then(function(result){
-    console.log(result);
-  });
