@@ -68,7 +68,7 @@ function errorCallback(err){
     // カメラの映像をCanvasに描画する
     offscreenCtx.drawImage(video, 0, 0);
 
-/*    // イメージデータを取得する（[r,g,b,a,r,g,b,a,...]のように1次元配列で取得できる）
+    // イメージデータを取得する（[r,g,b,a,r,g,b,a,...]のように1次元配列で取得できる）
     const imageData = offscreenCtx.getImageData(0, 0, offscreen.width, offscreen.height);
     // imageData.dataはreadonlyなのでfilterメソッドで直接書き換える
     filter(imageData.data);
@@ -86,7 +86,7 @@ function errorCallback(err){
   function filter(data) {
     // 画像処理を行う
          
-  }*/
+  }
 }
 
 main();
