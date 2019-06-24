@@ -29,16 +29,30 @@ async function main() {
   const offscreenCtx = offscreen.getContext("2d");
 
 
-const medias = {
-       audio: false,
-       video: true
-};
+  // カメラから映像を取得するためのvideo要素
+  const medias = {
+         audio: false,
+         video: true
+  };
 
-const video = document.getElementById("video");
-const promise = navigator.mediaDevices.getUserMedia(medias);
+    const video = document.getElementById("video");
+    const promise = navigator.mediaDevices.getUserMedia(medias);
 
-promise.then(successCallback)
-       .then(errorCallback);
+    promise.then(successCallback)
+           .then(errorCallback);
+
+
+    video.onloadedmetadata = () => {
+    video.play();
+
+       
+    // Canvasのサイズを映像に合わせる
+    canvas.width = offscreen.width = video.videoWidth;
+    canvas.height = offscreen.height = video.videoHeight;
+
+    tick();
+  };
+
 
 function successCallback(stream){
   video.srcObject = stream;
@@ -48,12 +62,6 @@ function errorCallback(err){
   alert(err);
   };
 
-    // Canvasのサイズを映像に合わせる
-    canvas.width = offscreen.width = video.videoWidth;
-    canvas.height = offscreen.height = video.videoHeight;
-
-    tick();
-  };
 
   // 1フレームごとに呼び出される処理
   function tick() {
