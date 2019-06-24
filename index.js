@@ -51,7 +51,7 @@ function errorCallback(err){
 
     
     const worker = new Tesseract.TesseractWorker();
-    await worker
+    worker
      .recognize(imageData)
      .progress(function(p) {
     // 進歩状況の表示
