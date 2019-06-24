@@ -85,6 +85,10 @@ function errorCallback(err){
 const worker = new Tesseract.TesseractWorker();
 await worker
   .recognize(canvas)
+  .progress(function(p) {
+    // 進歩状況の表示
+    console.log('progress', p)
+  })
   .then(function(result){
     console.log(result);
   });
