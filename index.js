@@ -83,7 +83,7 @@ function errorCallback(err){
 
 
 const worker = new Tesseract.TesseractWorker();
-worker
+await worker
   .recognize(canvas)
   .then(function(result){
     console.log(result);
