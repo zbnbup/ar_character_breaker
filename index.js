@@ -60,7 +60,7 @@ function errorCallback(err){
 
 
 
-const worker = new Tesseract.TesseractWorker();
+/*const worker = new Tesseract.TesseractWorker();
 await worker
   .recognize(canvas)
   .progress(function(p) {
@@ -69,7 +69,7 @@ await worker
   })
   .then(function(result){
     console.log(result);
-  });
+  });*/
 
 
 
