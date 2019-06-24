@@ -14,7 +14,7 @@ async function main() {
   };
 
     const video = document.getElementById("video");
-    const promise = navigator.mediaDevices.getUserMedia(medias);
+    const promise = await navigator.mediaDevices.getUserMedia(medias);
 
     promise.then(successCallback)
            .then(errorCallback);
@@ -60,7 +60,7 @@ function errorCallback(err){
 
 
 
-/*const worker = new Tesseract.TesseractWorker();
+const worker = new Tesseract.TesseractWorker();
 await worker
   .recognize(canvas)
   .progress(function(p) {
@@ -69,7 +69,7 @@ await worker
   })
   .then(function(result){
     console.log(result);
-  });*/
+  });
 
 
 
@@ -83,7 +83,5 @@ await worker
     // 画像処理を行う    
   }*/
 }
-
-main();
 
 
