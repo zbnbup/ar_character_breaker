@@ -17,7 +17,7 @@ function errorCallback(err){
   alert(err);
   };
 
-/*const worker = new Tesseract.TesseractWorker();
+const worker = new Tesseract.TesseractWorker();
 worker
   .recognize(video)
   .then(function(result){
