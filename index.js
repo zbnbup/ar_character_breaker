@@ -19,7 +19,7 @@ function errorCallback(err){
 
 const worker = new Tesseract.TesseractWorker();
 worker
-  .recognize(stream)
+  .recognize(promise)
   .then(function(result){
     console.log(result);
   });
