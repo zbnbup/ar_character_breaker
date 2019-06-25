@@ -38,7 +38,7 @@ async function main() {
     const imageData = offscreenCtx.getImageData(0, 0, offscreen.width, offscreen.height);
 
     
-    const worker = new Tesseract.TesseractWorker();
+    /*const worker = new Tesseract.TesseractWorker();
     worker
      .recognize(imageData)
      .progress(function(p) {
@@ -47,7 +47,7 @@ async function main() {
       })
      .then(function(result){
         console.log(result);
-    });
+    });*/
 
     
     // オフスクリーンCanvasを更新する
