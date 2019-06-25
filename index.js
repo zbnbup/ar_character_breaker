@@ -19,8 +19,7 @@ async function main() {
     promise.then(successCallback)
            .then(errorCallback);
 
-    video.onloadedmetadata = () => {
-    video.play();
+    video.onloadedmetadata = () => video.play();
 
        
     // Canvasのサイズを映像に合わせる
