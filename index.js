@@ -5,22 +5,18 @@ async function main() {
   // 画像処理用のオフスクリーンCanvas
   const offscreen = document.createElement("canvas");
   const offscreenCtx = offscreen.getContext("2d");
-
-  
   // カメラから映像を取得するためのvideo要素
-  const medias = {
-         audio: false,
-         video: true
-  };
+  const video = document.createElement("video");
 
-    const video = document.getElementById("video");
-    const stream = await navigator.mediaDevices.getUserMedia(medias);
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: true
+  });
 
-    video.srcObject = stream;
+  video.srcObject = stream;
+  // streamの読み込み完了
+  video.onloadedmetadata = () => {
+    video.play();
 
-    video.onloadedmetadata = () => video.play();
-
-       
     // Canvasのサイズを映像に合わせる
     canvas.width = offscreen.width = video.videoWidth;
     canvas.height = offscreen.height = video.videoHeight;
@@ -28,28 +24,16 @@ async function main() {
     tick();
   };
 
-
   // 1フレームごとに呼び出される処理
   function tick() {
     // カメラの映像をCanvasに描画する
     offscreenCtx.drawImage(video, 0, 0);
 
-  // イメージデータを取得する（[r,g,b,a,r,g,b,a,...]のように1次元配列で取得できる）
+    // イメージデータを取得する（[r,g,b,a,r,g,b,a,...]のように1次元配列で取得できる）
     const imageData = offscreenCtx.getImageData(0, 0, offscreen.width, offscreen.height);
+    // imageData.dataはreadonlyなのでfilterメソッドで直接書き換える
+    filter(imageData.data);
 
-    
-    /*const worker = new Tesseract.TesseractWorker();
-    worker
-     .recognize(imageData)
-     .progress(function(p) {
-    // 進歩状況の表示
-        console.log('progress', p)
-      })
-     .then(function(result){
-        console.log(result);
-    });*/
-
-    
     // オフスクリーンCanvasを更新する
     offscreenCtx.putImageData(imageData, 0, 0);
 
@@ -60,6 +44,20 @@ async function main() {
     window.requestAnimationFrame(tick);
   }
 
-
+  function filter(data) {
+    // 画像処理を行う
+  }
+}
 
 main();
+
+    /*const worker = new Tesseract.TesseractWorker();
+    worker
+     .recognize(imageData)
+     .progress(function(p) {
+    // 進歩状況の表示
+        console.log('progress', p)
+      })
+     .then(function(result){
+        console.log(result);
+    });*/
