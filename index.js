@@ -6,7 +6,6 @@ async function main() {
   const offscreen = document.createElement("canvas");
   const offscreenCtx = offscreen.getContext("2d");
 
-  console.log('aaa');
   
   // カメラから映像を取得するためのvideo要素
   const medias = {
@@ -19,8 +18,6 @@ async function main() {
 
     promise.then(successCallback)
            .then(errorCallback);
-
-  console.log('bbb');
 
     video.onloadedmetadata = () => {
     video.play();
@@ -52,7 +49,7 @@ function errorCallback(err){
     const imageData = offscreenCtx.getImageData(0, 0, offscreen.width, offscreen.height);
 
     
-    /*const worker = new Tesseract.TesseractWorker();
+    const worker = new Tesseract.TesseractWorker();
     worker
      .recognize(imageData)
      .progress(function(p) {
@@ -61,7 +58,7 @@ function errorCallback(err){
       })
      .then(function(result){
         console.log(result);
-    });*/
+    });
 
     
     // オフスクリーンCanvasを更新する
