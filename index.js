@@ -15,7 +15,7 @@ async function main() {
   video.srcObject = stream;
   // streamの読み込み完了
   video.onloadedmetadata = () => {
-    video.play()};
+    video.play();
 
     // Canvasのサイズを映像に合わせる
     canvas.width = offscreen.width = video.videoWidth;
