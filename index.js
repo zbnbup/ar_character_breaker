@@ -14,7 +14,7 @@ async function main() {
   };
 
     const video = document.getElementById("video");
-    const promise = await navigator.mediaDevices.getUserMedia(medias);
+    const stream = await navigator.mediaDevices.getUserMedia(medias);
 
     video.srcObject = stream;
 
