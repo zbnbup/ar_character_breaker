@@ -46,18 +46,19 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-  }
-}
-
-main();
-
-    /*const worker = new Tesseract.TesseractWorker();
+    const worker = new Tesseract.TesseractWorker();
     worker
-     .recognize(imageData)
+     .recognize(data)
      .progress(function(p) {
     // 進歩状況の表示
         console.log('progress', p)
       })
      .then(function(result){
         console.log(result);
-    });*/
+    });
+  }
+}
+
+main();
+
+
