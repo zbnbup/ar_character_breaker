@@ -14,7 +14,7 @@ function main() {
   };
 
     const video = document.getElementById("video");
-    const promise = await navigator.mediaDevices.getUserMedia(medias);
+    const promise = navigator.mediaDevices.getUserMedia(medias);
 
     promise.then(successCallback)
            .then(errorCallback);
