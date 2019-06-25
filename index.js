@@ -47,14 +47,14 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-  const worker = new Tesseract.TesseractWorker();
+  /*const worker = new Tesseract.TesseractWorker();
 
   worker.recognize(video)
   .progress(progress => {
     console.log('progress', progress);
   }).then(result => {
     console.log('result', result);
-  });
+  });*/
   }
   
 }
