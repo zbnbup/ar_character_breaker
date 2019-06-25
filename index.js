@@ -16,8 +16,7 @@ async function main() {
     const video = document.getElementById("video");
     const promise = await navigator.mediaDevices.getUserMedia(medias);
 
-    promise.then(successCallback)
-           .then(errorCallback);
+    video.srcObject = stream;
 
     video.onloadedmetadata = () => video.play();
 
@@ -30,13 +29,13 @@ async function main() {
   };
 
 
-function successCallback(stream){
+/*function successCallback(stream){
   video.srcObject = stream;
   };
 
 function errorCallback(err){
   alert(err);
-  };
+  };*/
 
 
   // 1フレームごとに呼び出される処理
