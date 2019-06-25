@@ -69,7 +69,7 @@ function errorCallback(err){
     // 次フレームを処理する
     window.requestAnimationFrame(tick);
   }
-}
+
 
 
 main();
