@@ -15,7 +15,7 @@ async function main() {
   video.srcObject = stream;
   // streamの読み込み完了
   video.onloadedmetadata = () => {
-    video.play();
+    video.play()};
 
     // Canvasのサイズを映像に合わせる
     canvas.width = offscreen.width = video.videoWidth;
@@ -46,11 +46,15 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-for (let i = 0; i < data.length; i += 4) {
-  // (r+g+b)/3
-  const color = (data[i] + data[i+1] + data[i+2]) / 3;
-  data[i] = data[i+1] = data[i+2] = color;
-}
+  import { TesseractWorker } from 'tesseract.js';
+  const worker = new TesseractWorker();
+
+  worker.recognize(video)
+  .progress(progress => {
+    console.log('progress', progress);
+  }).then(result => {
+    console.log('result', result);
+  });
   }
 }
 
