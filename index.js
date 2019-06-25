@@ -46,7 +46,7 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-  import { TesseractWorker } from 'tesseract.js';
+  import TesseractWorker from 'tesseract.js';
   const worker = new TesseractWorker();
 
   worker.recognize(video)
