@@ -1,4 +1,4 @@
-function main() {
+async function main() {
   // 表示用のCanvas
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -15,7 +15,7 @@ function main() {
   };
 
     const video = document.getElementById("video");
-    const promise = navigator.mediaDevices.getUserMedia(medias);
+    const promise = await navigator.mediaDevices.getUserMedia(medias);
 
     promise.then(successCallback)
            .then(errorCallback);
@@ -76,3 +76,4 @@ function errorCallback(err){
 }
 
 
+main();
