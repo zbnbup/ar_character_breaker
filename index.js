@@ -47,7 +47,7 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-  const worker = new TesseractWorker();
+  const worker = new Tesseract.TesseractWorker();
 
   worker.recognize(video)
   .progress(progress => {
