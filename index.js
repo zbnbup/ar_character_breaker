@@ -6,7 +6,8 @@ function main() {
   const offscreen = document.createElement("canvas");
   const offscreenCtx = offscreen.getContext("2d");
 
-
+  console.log('aaa');
+  
   // カメラから映像を取得するためのvideo要素
   const medias = {
          audio: false,
@@ -19,7 +20,7 @@ function main() {
     promise.then(successCallback)
            .then(errorCallback);
 
-  console.log('aaa');
+  console.log('bbb');
 
     video.onloadedmetadata = () => {
     video.play();
