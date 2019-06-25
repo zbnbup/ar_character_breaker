@@ -29,15 +29,6 @@ async function main() {
   };
 
 
-/*function successCallback(stream){
-  video.srcObject = stream;
-  };
-
-function errorCallback(err){
-  alert(err);
-  };*/
-
-
   // 1フレームごとに呼び出される処理
   function tick() {
     // カメラの映像をCanvasに描画する
