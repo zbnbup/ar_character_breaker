@@ -1,4 +1,4 @@
-async function main() {
+function main() {
   // 表示用のCanvas
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -51,7 +51,7 @@ function errorCallback(err){
     const imageData = offscreenCtx.getImageData(0, 0, offscreen.width, offscreen.height);
 
     
-    const worker = new Tesseract.TesseractWorker();
+    /*const worker = new Tesseract.TesseractWorker();
     worker
      .recognize(imageData)
      .progress(function(p) {
@@ -60,7 +60,7 @@ function errorCallback(err){
       })
      .then(function(result){
         console.log(result);
-    });
+    });*/
 
     
     // オフスクリーンCanvasを更新する
