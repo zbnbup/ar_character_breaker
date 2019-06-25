@@ -46,16 +46,11 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-    const worker = new Tesseract.TesseractWorker();
-    worker
-     .recognize(data)
-     .progress(function(p) {
-    // 進歩状況の表示
-        console.log('progress', p)
-      })
-     .then(function(result){
-        console.log(result);
-    });
+for (let i = 0; i < data.length; i += 4) {
+  // (r+g+b)/3
+  const color = (data[i] + data[i+1] + data[i+2]) / 3;
+  data[i] = data[i+1] = data[i+2] = color;
+}
   }
 }
 
