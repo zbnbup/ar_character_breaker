@@ -19,6 +19,7 @@ async function main() {
     promise.then(successCallback)
            .then(errorCallback);
 
+  console.log('aaa');
 
     video.onloadedmetadata = () => {
     video.play();
@@ -29,18 +30,6 @@ async function main() {
     canvas.height = offscreen.height = video.videoHeight;
 
     tick();
-      
-          const worker = new Tesseract.TesseractWorker();
-    worker
-     .recognize(imageData)
-     .progress(function(p) {
-    // 進歩状況の表示
-        console.log('progress', p)
-      })
-     .then(function(result){
-        console.log(result);
-    });
-      
   };
 
 
