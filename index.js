@@ -1,4 +1,5 @@
 async function main() {
+  
   // 表示用のCanvas
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -46,8 +47,7 @@ async function main() {
 
   function filter(data) {
     // 画像処理を行う
-  import {TesseractWorker} from 'tesseract.js';
-  const worker = new TesseractWorker();
+  const worker = new Tesseract.TesseractWorker();
 
   worker.recognize(video)
   .progress(progress => {
@@ -56,6 +56,7 @@ async function main() {
     console.log('result', result);
   });
   }
+  
 }
 
 main();
